@@ -32,8 +32,10 @@ if (!getArgument('secret')) {
 $dbidentifier = getArgument('dbidentifier');
 
 $instance = new RdsClient([
-    'key'     => getArgument('key'),
-    'secret'  => getArgument('secret'),
+    'credentials' => [
+        'key'     => getArgument('key'),
+        'secret'  => getArgument('secret'),
+    ],
     'region'  => getArgument('region'),
     'version' => '2014-10-31'
 ]);
