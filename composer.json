@@ -1,0 +1,12 @@
+{
+    "require": {
+        "pointybeard/shell-args": "^1.0",
+        "aws/aws-sdk-php": "^3.18"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/pointybeard/shellargs"
+        }
+    ]
+}
