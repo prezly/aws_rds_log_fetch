@@ -4,6 +4,8 @@ DB_NAME=${1:-production-pgsql}
 
 FILE=${2:-postgresql.log.$(date +%F-%H --date "1 hour ago")}
 
+OUTPUT_DIR=${3:-error}
+
 COUNTER=1
 LASTFOUNDTOKEN=0
 PREVIOUSTOKEN=0
@@ -33,7 +35,7 @@ while [  $COUNTER -lt 100 ]; do
 		PREVIOUSTOKEN=${LASTFOUNDTOKEN}
 	fi
 
-	cat ${FILE}.${COUNTER} >> ${FILE}
+	cat ${FILE}.${COUNTER} >> ${OUTPUT_DIR}/${FILE}
 	rm -f ${FILE}.${COUNTER}
 
 	let COUNTER=COUNTER+1
