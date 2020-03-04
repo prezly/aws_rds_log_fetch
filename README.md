@@ -3,7 +3,7 @@
 Script used to fetch hourly logs from RDS instance.
 It writes the logs to an error/ folder and has the ability to append to a single file for rsyslog/logstash digestion
 
-I cron the script to be run hourly with the --lasthour pararameter. So at the end of every hour it gets the log file from last hour and writes + appends that.
+I cron the script to be run hourly with the --lasthour argument. So at the end of every hour it gets the log file from last hour and writes + appends that.
 
 
 ## How to use

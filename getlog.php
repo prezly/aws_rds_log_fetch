@@ -9,25 +9,10 @@ use pointybeard\ShellArgs\Lib\Argument;
 use pointybeard\ShellArgs\Lib\ArgumentIterator;
 
 // checking script arguments
-if (!getArgument('dbidentifier')) {
-    print "Missing script parameter --dbidentifier\n";
-    die();
-}
-
-if (!getArgument('region')) {
-    print "Missing script parameter --region\n";
-    die();
-}
-
-if (!getArgument('key')) {
-    print "Missing script parameter --key\n";
-    die();
-}
-
-if (!getArgument('secret')) {
-    print "Missing script parameter --secret\n";
-    die();
-}
+checkArgument('dbidentifier');
+checkArgument('region');
+checkArgument('key');
+checkArgument('secret');
 
 $dbidentifier = getArgument('dbidentifier');
 
@@ -123,4 +108,10 @@ function getArgument($argument) {
         return $argument_identifier->__get('value');
 
     return null;
+}
+
+function checkArgument($parameter) {
+    if (!getArgument($parameter)) {
+        throw new Exception('Missing script argument --' . $parameter);
+    }
 }
